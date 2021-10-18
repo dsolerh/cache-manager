@@ -1,5 +1,5 @@
 {
-  "name": "ds-chache-manager",
+  "name": "ds-cache-manager",
   "version": "0.0.1",
   "description": "A cache manager utility",
   "main": "lib/index.js",
@@ -19,8 +19,8 @@
     "postversion": "git push && git push --tags"
   },
   "keywords": [
-    "chache",
-    "chaching",
+    "cache",
+    "caching",
     "node"
   ],
   "author": "dsolerh",
