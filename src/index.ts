@@ -14,11 +14,11 @@ export default class CacheManager {
     return CacheManager.size;
   }
 
-  public getCount(section: string): number {
+  public static getCount(section: string): number {
     return Object.keys(CacheManager.cache[section]).length;
   }
 
-  public get(section: string, key: string): any {
+  public static get(section: string, key: string): any {
     const sec = CacheManager.cache[section];
     if (sec) {
       return sec[key];
@@ -26,7 +26,7 @@ export default class CacheManager {
     return null;
   }
 
-  public set(section: string, key: string, value: any): void {
+  public static set(section: string, key: string, value: any): void {
     if (!CacheManager.cache[section]) {
       CacheManager.cache[section] = {};
     }
@@ -48,7 +48,7 @@ export default class CacheManager {
     };
   }
 
-  public clear(section?: string): void {
+  public static clear(section?: string): void {
     if (section) {
       CacheManager.cache[section] = {};
     } else {
