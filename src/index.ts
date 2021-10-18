@@ -1,4 +1,4 @@
-export default class CacheManager {
+export class CacheManager {
   private static cache: any = {};
   private static size: number = 10;
 

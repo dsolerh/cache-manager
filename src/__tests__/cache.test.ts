@@ -1,4 +1,4 @@
-import CacheManager from '../index';
+import {CacheManager} from '../index';
 
 
 test('Set size: ', () => {
