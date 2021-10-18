@@ -1,0 +1,16 @@
+{
+  "name": "ds-chache-manager",
+  "version": "0.0.1",
+  "description": "A cache manager utility",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chache",
+    "chaching",
+    "node"
+  ],
+  "author": "Daniel Soler",
+  "license": "ISC"
+}
