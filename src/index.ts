@@ -1,26 +1,25 @@
 export default class CacheManager {
-  private static __cache: any = {};
-  private static __size: number = 10;
-  constructor() {}
+  private static cache: any = {};
+  private static size: number = 10;
 
   public static setSize(size: number): void {
     if (size) {
-      CacheManager.__size = size;
+      CacheManager.size = size;
     } else {
       throw new Error('Size cannot be undefined');
     }
   }
 
   public static getSize(): number {
-    return CacheManager.__size;
+    return CacheManager.size;
   }
 
   public getCount(section: string): number {
-    return Object.keys(CacheManager.__cache[section]).length;
+    return Object.keys(CacheManager.cache[section]).length;
   }
 
   public get(section: string, key: string): any {
-    let sec = CacheManager.__cache[section];
+    const sec = CacheManager.cache[section];
     if (sec) {
       return sec[key];
     }
@@ -28,32 +27,32 @@ export default class CacheManager {
   }
 
   public set(section: string, key: string, value: any): void {
-    if (!CacheManager.__cache[section]) {
-      CacheManager.__cache[section] = {};
+    if (!CacheManager.cache[section]) {
+      CacheManager.cache[section] = {};
     }
-    if (this.getCount(section) === CacheManager.__size) {
+    if (this.getCount(section) === CacheManager.size) {
       let date = Date.now();
-      let key: string = '';
-      const secs = CacheManager.__cache[section];
+      let keyTD: string = '';
+      const secs = CacheManager.cache[section];
       for (const k of Object.keys(secs)) {
         if (secs[k].date <= date) {
           date = secs[k].date;
-          key = k;
+          keyTD = k;
         }
       }
-      delete secs[key];
+      delete secs[keyTD];
     }
-    CacheManager.__cache[section][key] = {
+    CacheManager.cache[section][key] = {
       date: Date.now(),
-      value: value,
+      value,
     };
   }
 
   public clear(section?: string): void {
     if (section) {
-      CacheManager.__cache[section] = {};
+      CacheManager.cache[section] = {};
     } else {
-      CacheManager.__cache = {};
+      CacheManager.cache = {};
     }
   }
 }
