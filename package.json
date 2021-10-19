@@ -1,6 +1,6 @@
 {
-  "name": "ds-cache-manager",
-  "version": "1.1.0",
+  "name": "dsh-simple-cache-node",
+  "version": "2.0.1",
   "description": "A cache manager utility",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

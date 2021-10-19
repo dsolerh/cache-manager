@@ -43,3 +43,8 @@ test('Clear data: ', () => {
   expect(CacheManager.get('test','d2')).toEqual(undefined);
   expect(CacheManager.get('test','d3')).toEqual(undefined);
 });
+
+test('Clear data (non existing): ', () => {
+  CacheManager.clear('test');
+  expect(CacheManager.getCount('test')).toEqual(0);
+});

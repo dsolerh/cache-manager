@@ -15,6 +15,9 @@ export class CacheManager {
   }
 
   public static getCount(section: string): number {
+    if (!section) {
+      throw new Error('Section cannot be undefined');
+    }
     return Object.keys(CacheManager.cache[section]).length;
   }
 
