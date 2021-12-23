@@ -51,9 +51,11 @@ export class CacheManager {
     };
   }
 
-  public static clear(section?: string): void {
-    if (section) {
-      CacheManager.cache[section] = {};
+  public static clear(...sections: string[]): void {
+    if (sections) {
+      for (const section of sections) {
+        CacheManager.cache[section] = {};
+      }
     } else {
       CacheManager.cache = {};
     }
